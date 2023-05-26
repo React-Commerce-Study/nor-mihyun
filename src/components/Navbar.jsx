@@ -36,6 +36,6 @@ const IconWrapper = styled.div`
 
   span {
     color: ${(props) => props.theme.style.darkGray};
-    font-size: ${(props) => props.theme.style.sm};
+    font-size: ${(props) => props.theme.style.fonts.xs};
   }
 `;
