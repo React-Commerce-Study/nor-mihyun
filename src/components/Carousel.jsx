@@ -24,9 +24,13 @@ export default function Carousel({ data }) {
   }, [current]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       moveSlide(1);
-    }, [3000]);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   });
 
   return (
