@@ -3,6 +3,7 @@ import { getProductList } from "../api/products";
 import AppLayout from "../components/AppLayout";
 import Carousel from "../components/Carousel";
 import carouselImages from "../mock/mockCarouselData";
+import ProductList from "../components/ProductList";
 
 export default function Main() {
   const [products, setProducts] = useState([]);
@@ -16,20 +17,7 @@ export default function Main() {
   return (
     <AppLayout>
       <Carousel data={carouselImages} />
-      <ul>
-        {products.map((item) => (
-          <li key={item.product_id}>
-            <img
-              style={{ width: "380px", height: "380px" }}
-              src={item.image}
-              alt={item.product_name}
-            />
-            <span>{item.store_name}</span>
-            <span>{item.product_name}</span>
-            <span>{item.price.toLocaleString()}원</span>
-          </li>
-        ))}
-      </ul>
+      <ProductList products={products} />
     </AppLayout>
   );
 }
