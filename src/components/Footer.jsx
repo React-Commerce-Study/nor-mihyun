@@ -15,43 +15,51 @@ export default function Footer() {
   ];
 
   return (
-    <FooterWrapper>
-      <FooterPageNav>
-        <FooterPageList>
-          {pages.map((page, idx) => (
-            <li key={idx}>
-              <span>{page}</span>
+    <PageFooter>
+      <FooterWrapper>
+        <FooterPageNav>
+          <FooterPageList>
+            {pages.map((page, idx) => (
+              <li key={idx}>
+                <span>{page}</span>
+              </li>
+            ))}
+          </FooterPageList>
+          <FooterSocialPageList>
+            <li>
+              <img src={instaIcon} alt="인스타그램 바로가기" />
             </li>
-          ))}
-        </FooterPageList>
-        <FooterSocialPageList>
-          <li>
-            <img src={instaIcon} alt="인스타그램 바로가기" />
-          </li>
-          <li>
-            <img src={fbIcon} alt="페이스북 바로가기" />
-          </li>
-          <li>
-            <img src={ytIcon} alt="유튜브 바로가기" />
-          </li>
-        </FooterSocialPageList>
-      </FooterPageNav>
-      <FooterInfo>
-        <strong>(주)HODU SHOP</strong> <br />
-        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
-        사업자 번호 : 000-0000-0000 | 통신판매업 <br />
-        대표 : 김호두
-      </FooterInfo>
-    </FooterWrapper>
+            <li>
+              <img src={fbIcon} alt="페이스북 바로가기" />
+            </li>
+            <li>
+              <img src={ytIcon} alt="유튜브 바로가기" />
+            </li>
+          </FooterSocialPageList>
+        </FooterPageNav>
+        <FooterInfo>
+          <strong>(주)HODU SHOP</strong> <br />
+          제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
+          사업자 번호 : 000-0000-0000 | 통신판매업 <br />
+          대표 : 김호두
+        </FooterInfo>
+      </FooterWrapper>
+    </PageFooter>
   );
 }
 
-const FooterWrapper = styled.footer`
+const PageFooter = styled.footer`
+  width: 100%;
+  height: 298px;
+  background-color: ${(props) => props.theme.style.moreLightGray};
+`;
+
+const FooterWrapper = styled.div`
   ${(props) => props.theme.variables.flex("column", "center", "stretch")}
   gap: 30px;
-  height: 298px;
-  padding: 54px 320px 63px 320px;
-  background-color: ${(props) => props.theme.style.moreLightGray};
+  max-width: 1280px;
+  padding: 54px 0 63px 0;
+  margin: 0 auto;
 `;
 
 const FooterPageNav = styled.div`

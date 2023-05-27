@@ -7,23 +7,30 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <HeaderWrapper>
-      <HeaderSearch>
-        <Link to="/">
-          <h1 className="a11y-hidden">호두몰</h1>
-          <img src={logo} alt="호두몰 로고" />
-        </Link>
-        <SearchForm />
-      </HeaderSearch>
-      <Navbar />
-    </HeaderWrapper>
+    <PageHeader>
+      <HeaderWrapper>
+        <HeaderSearch>
+          <Link to="/">
+            <h1 className="a11y-hidden">호두몰</h1>
+            <img src={logo} alt="호두몰 로고" />
+          </Link>
+          <SearchForm />
+        </HeaderSearch>
+        <Navbar />
+      </HeaderWrapper>
+    </PageHeader>
   );
 }
 
-const HeaderWrapper = styled.header`
+const PageHeader = styled.header`
   width: 100%;
-  padding: 20px 320px;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+`;
+
+const HeaderWrapper = styled.div`
+  max-width: 1280px;
+  padding: 20px 0;
+  margin: 0 auto;
 
   ${(props) => props.theme.variables.flex("row", "space-between")}
 `;
