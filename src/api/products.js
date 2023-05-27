@@ -1,8 +1,8 @@
 const URL = "https://openmarket.weniv.co.kr";
 
-export const getProductList = async () => {
+export const getProductList = async (page) => {
   try {
-    const response = await fetch(`${URL}/products`);
+    const response = await fetch(`${URL}/products/?page=${page}`);
 
     if (!response.ok) {
       throw new Error("네트워크에 문제가 발생했습니다.");
