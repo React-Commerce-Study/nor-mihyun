@@ -15,8 +15,7 @@ export default function SearchForm() {
           placeholder="상품을 검색해보세요!"
         />
         <SearchButton type="submit">
-          <SearchIcon />
-          {/* <img src={searchIcon} alt="검색 버튼 아이콘" /> */}
+          <StyledSearchIcon />
         </SearchButton>
       </SearchInputWrapper>
     </form>
@@ -32,6 +31,8 @@ const SearchButton = styled.button`
   padding: 0;
   transform: translateX(-44px);
 `;
+
+const StyledSearchIcon = styled(SearchIcon)``;
 
 const SearchInput = styled.input`
   width: 400px;
@@ -52,7 +53,7 @@ const SearchInput = styled.input`
     outline: none;
 
     & + ${SearchButton} {
-      ${SearchIcon} {
+      ${StyledSearchIcon} {
         path {
           transition: all 0.2s linear;
           stroke: ${(props) => props.theme.style.mainColor};
