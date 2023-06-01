@@ -1,25 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import ArrowTop from "../assets/images/icon-arrow-top.svg";
-import { useScrollChecker } from "../hooks/useScrollChecker";
+import ArrowTop from "../../../assets/images/icon-arrow-top.svg";
 
-function ScrollToTopBtn() {
-  const { isTop } = useScrollChecker();
-
-  const handleClickButton = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  return (
-    <BtnWrapper isTop={isTop}>
-      <button type="button" onClick={handleClickButton}></button>
-    </BtnWrapper>
-  );
-}
-
-export default React.memo(ScrollToTopBtn);
-
-const BtnWrapper = styled.article`
+export const BtnWrapper = styled.article`
   position: fixed;
   right: 0;
   bottom: 0;

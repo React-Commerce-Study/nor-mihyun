@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getProductList } from "../api/products";
-import AppLayout from "../components/AppLayout";
-import Carousel from "../components/Carousel";
+import AppLayout from "../layout/AppLayout";
+import Carousel from "../components/Carousel/Carousel";
 import carouselImages from "../mock/mockCarouselData";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/Product/ProductList/ProductList";
 import { useScrollChecker } from "../hooks/useScrollChecker";
 
 export default function Main() {

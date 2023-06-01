@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import cartIcon from "../assets/images/icon-shopping-cart.png";
-import userIcon from "../assets/images/icon-user.png";
+import cartIcon from "../../assets/images/icon-shopping-cart.png";
+import userIcon from "../../assets/images/icon-user.png";
 import { Link } from "react-router-dom";
+import { IconWrapper, NavbarWrapper } from "./NavbarStyle";
 
 export default function Navbar() {
   return (
@@ -22,20 +22,3 @@ export default function Navbar() {
     </NavbarWrapper>
   );
 }
-
-const NavbarWrapper = styled.nav`
-  margin-left: auto;
-
-  ${(props) => props.theme.variables.flex}
-  gap: 32px;
-`;
-
-const IconWrapper = styled.div`
-  ${(props) => props.theme.variables.flex("column")}
-  gap: 4px;
-
-  span {
-    color: ${(props) => props.theme.style.darkGray};
-    font-size: ${(props) => props.theme.style.fonts.xs};
-  }
-`;
