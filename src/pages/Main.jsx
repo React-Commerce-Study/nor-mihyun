@@ -11,7 +11,7 @@ export default function Main() {
   const [page, setPage] = useState(1);
   const [hasNext, setHasNext] = useState(true);
 
-  const isBottom = useScrollChecker();
+  const { isBottom } = useScrollChecker();
 
   // 다음 페이지가 존재하면 데이터 패칭
   useEffect(() => {
