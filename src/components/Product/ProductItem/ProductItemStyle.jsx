@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProductCard = styled.article`
   ${(props) => props.theme.variables.flex("column", "center", "flex-start")}
   width: 380px;
+  cursor: pointer;
 
   img {
     width: 100%;
