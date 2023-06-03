@@ -33,7 +33,7 @@ export default function Main() {
   }, [isBottom, hasNext]);
 
   return (
-    <AppLayout>
+    <AppLayout layout={false}>
       <Carousel data={carouselImages} />
       <ProductList products={products} />
     </AppLayout>
