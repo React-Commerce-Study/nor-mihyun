@@ -4,6 +4,7 @@ const font = {
   md: "1.6rem",
   lg: "1.8rem",
   xl: "2.4rem",
+  xxl: "3.6rem",
 };
 
 const theme = {
