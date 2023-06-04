@@ -109,3 +109,17 @@ export const Price = styled.section`
     }
   }
 `;
+
+export const ActionButtons = styled.div`
+  ${(props) => props.theme.variables.flex};
+  gap: 14px;
+  margin-top: 41px;
+
+  button:nth-child(1) {
+    flex-basis: 416px;
+  }
+
+  button:nth-child(2) {
+    flex: 1;
+  }
+`;

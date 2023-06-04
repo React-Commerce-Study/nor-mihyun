@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import QuantityInput from "../../Input/QuantityInput/QuantityInput";
 import {
+  ActionButtons,
   Delivery,
   ImgWrapper,
   Info,
@@ -8,8 +9,23 @@ import {
   ProductMain,
   Wrapper,
 } from "./ProductInfoStyle";
+import Button from "../../Button/Button/Button";
 
 export default function ProductInfo({ product }) {
+  const [quantity, setQuantity] = useState(1);
+  const [total, setTotal] = useState(product.price);
+
+  const handleClickCounter = (num) => {
+    setQuantity((prev) => prev + num);
+    setTotal((prev) => prev + product.price * num);
+  };
+
+  const handleBlurInput = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    setQuantity(newQuantity);
+    setTotal(product.price * newQuantity);
+  };
+
   return (
     <Wrapper>
       <h2 className="a11y-hidden">상품 상세 페이지</h2>
@@ -23,7 +39,7 @@ export default function ProductInfo({ product }) {
             <span>{product.store_name}</span>
             <h4>{product.product_name}</h4>
             <span>
-              <strong>{product.price?.toLocaleString()}</strong>원
+              <strong>{product.price.toLocaleString()}</strong>원
             </span>
           </Info>
           <Delivery>
@@ -33,25 +49,31 @@ export default function ProductInfo({ product }) {
             </span>
           </Delivery>
         </ProductMain>
-        <QuantityInput stock={product.stock} />
+        <QuantityInput
+          quantity={quantity}
+          stock={product.stock}
+          onClick={handleClickCounter}
+          onBlur={handleBlurInput}
+        />
         <Price>
           <h3 className="a11y-hidden">총 상품 가격 정보</h3>
           <span>총 상품 금액</span>
           <div>
             <span>
-              총 수량 <strong>1</strong>개
+              총 수량 <strong>{quantity}</strong>개
             </span>
             <span>
-              <strong>17,500</strong>원
+              <strong>{total.toLocaleString()}</strong>원
             </span>
           </div>
         </Price>
 
-        {/* -- form buttons -- */}
-        {/* <div>
-          <button type="submit">바로 구매</button>
-          <button type="submit">장바구니</button>
-        </div> */}
+        <ActionButtons>
+          <Button size={"md"}>바로 구매</Button>
+          <Button size={"md"} variant={"dark"}>
+            장바구니
+          </Button>
+        </ActionButtons>
       </form>
     </Wrapper>
   );

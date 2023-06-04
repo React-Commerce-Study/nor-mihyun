@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import ProductInfo from "../components/Product/ProductInfo/ProductInfo";
+import ProductDetailTabs from "../components/Product/ProductDetailTabs/ProductDetailTabs";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../api/products";
 
@@ -16,9 +17,12 @@ export default function PrdocutDetail() {
     })();
   }, [productId]);
 
-  return (
-    <AppLayout>
-      <ProductInfo product={product} />
-    </AppLayout>
-  );
+  if (Object.keys(product).length) {
+    return (
+      <AppLayout>
+        <ProductInfo product={product} />
+        <ProductDetailTabs />
+      </AppLayout>
+    );
+  }
 }
