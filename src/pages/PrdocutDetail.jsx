@@ -21,6 +21,8 @@ export default function PrdocutDetail() {
     return (
       <AppLayout>
         <ProductInfo product={product} />
+
+        {/* TODO: 상품에 따른 상세 정보 보여주기 */}
         <ProductDetailTabs />
       </AppLayout>
     );
