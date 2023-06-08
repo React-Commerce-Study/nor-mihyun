@@ -19,6 +19,18 @@ export default function QuantityInput({ stock, quantity, onClick, onBlur }) {
     }
   };
 
+  const handleBlurInput = (e) => {
+    let newValue = parseInt(e.target.value);
+
+    if (stock < newValue) {
+      alert(`${stock}개 이하로 구매하실 수 있습니다.`);
+      newValue = stock;
+    }
+
+    setValue(newValue);
+    onBlur(newValue);
+  };
+
   useEffect(() => {
     setValue(quantity);
   }, [quantity]);
@@ -28,7 +40,7 @@ export default function QuantityInput({ stock, quantity, onClick, onBlur }) {
       <Counter>
         <button
           type="button"
-          disabled={stock < 1 || value === 1}
+          disabled={value === 1}
           aria-label="수량 내리기"
           onClick={() => onClick(-1)}
         >
@@ -42,12 +54,12 @@ export default function QuantityInput({ stock, quantity, onClick, onBlur }) {
             value={value}
             max={stock}
             onChange={handleChangeInput}
-            onBlur={onBlur}
+            onBlur={handleBlurInput}
           />
         </label>
         <button
           type="button"
-          disabled={stock === value}
+          disabled={stock < 1 || stock === value}
           aria-label="수량 올리기"
           onClick={() => onClick(1)}
         >

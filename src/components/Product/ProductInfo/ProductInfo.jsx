@@ -20,8 +20,8 @@ export default function ProductInfo({ product }) {
     setTotal((prev) => prev + product.price * num);
   };
 
-  const handleBlurInput = (e) => {
-    const newQuantity = parseInt(e.target.value);
+  const handleBlurInput = (quantity) => {
+    const newQuantity = quantity;
     setQuantity(newQuantity);
     setTotal(product.price * newQuantity);
   };
