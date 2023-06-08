@@ -30,7 +30,8 @@ export const Counter = styled.div`
 
   button {
     ${(props) => props.theme.variables.flex};
-    width: 48px;
+    flex-basis: 48px;
+    flex-shrink: 0;
     height: 100%;
     padding: 0;
     display: flex;
@@ -47,7 +48,7 @@ export const Counter = styled.div`
   }
 
   input {
-    flex: 1;
+    width: 100%;
     height: 100%;
     padding: 0;
     font-size: ${(props) => props.theme.style.fonts.lg};
